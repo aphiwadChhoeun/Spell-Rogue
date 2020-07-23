@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://OverlapBox/Hurtbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OverlapBox/PlayerHurtbox.gd" type="Script" id=2]
+[ext_resource path="res://Effect/hurt.wav" type="AudioStream" id=3]
+
+[node name="PlayerHurtbox" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="SoundEffect" type="AudioStreamPlayer" parent="." index="1"]
+stream = ExtResource( 3 )
+volume_db = -0.2
+[connection signal="area_entered" from="." to="." method="_on_Hurtbox_area_entered"]
